@@ -1,14 +1,14 @@
 # Un assistant pour créer des courbes paramétriques en TeX
 
 Le programme de l'assistant nécessite plusieurs modules
- - tkinter (Tcl)
- - pillow
- - matplotlib (pas encore utilisé)
- - numpy (idem)
+ - `tkinter` (Tcl)
+ - `pillow`
+ - `matplotlib` (pas encore utilisé)
+ - `numpy` (idem)
 
 Le programme nécessite deux modules TeX
- - tikz
- - pgfplots
+ - `tikz`
+ - `pgfplots`
  
 ## Utilisation de l'assistant
 Dans la zone principale, vous pouvez paramétrer des courbes.
