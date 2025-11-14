@@ -60,6 +60,7 @@ def axeplot(curbs, arguments, legend, legendtitle, axiseq):
 
 def figure(curbs, arguments, caption, legend, legendttle, axiseq):
     txt = r'''\begin{figure}
+\centering
 \begin{tikzpicture}
 '''
     txt += axeplot(curbs, arguments, legend, legendttle, axiseq)
