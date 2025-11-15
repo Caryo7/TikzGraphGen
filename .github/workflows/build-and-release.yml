@@ -59,15 +59,15 @@ jobs:
                 name: exes-debian
                 path: dist/**.*
 
-    release:
-        name: Release pushed tag
-        runs-on: ubuntu-24.04
-        needs: [Build-Linux, Build-Windows]
-        steps:
-          - name: Create release
-            env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: |
-              gh release create "$GITHUB_REF_NAME" \
-              --repo="$GITHUB_REPOSITORY" \
-              --title="${GITHUB_REPOSITORY#*/} $GITHUB_REF_NAME"
+ #   release:
+ #       name: Release pushed tag
+ #       runs-on: ubuntu-24.04
+ #       needs: [Build-Linux, Build-Windows]
+ #       steps:
+ #         - name: Create release
+ #           env:
+ #             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ #           run: |
+ #             gh release create "$GITHUB_REF_NAME" \
+ #             --repo="$GITHUB_REPOSITORY" \
+ #             --title="${GITHUB_REPOSITORY#*/} $GITHUB_REF_NAME"
