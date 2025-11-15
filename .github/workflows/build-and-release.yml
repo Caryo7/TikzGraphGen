@@ -28,14 +28,11 @@ jobs:
           - name: Build EXE files
             run: python -m PyInstaller src/main.py --noconfirm
 
-          - name: Print structure
-            run: tree
-
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
             with:
                 name: exes-win
-                path: dist/*.*
+                path: dist/main/**.*
 
     Build-Linux:
         runs-on: ubuntu-latest
@@ -55,6 +52,9 @@ jobs:
 
           - name: Build EXE files
             run: python -m PyInstaller src/main.py --noconfirm
+
+          - name: Print Structure
+            run: find | sed 's|[^/]*/|- |g'
 
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
