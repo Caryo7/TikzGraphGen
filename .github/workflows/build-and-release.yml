@@ -57,7 +57,7 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
                 name: exes-debian
-                path: dist/main/**.*
+                path: dist/**.*
 
     release:
         name: Release pushed tag
@@ -70,4 +70,4 @@ jobs:
             run: |
               gh release create "$GITHUB_REF_NAME" \
               --repo="$GITHUB_REPOSITORY" \
-              --title="${GITHUB_REPOSITORY#*/} $GITHUB_REF_NAME" \
+              --title="${GITHUB_REPOSITORY#*/} $GITHUB_REF_NAME"
