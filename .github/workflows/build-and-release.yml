@@ -62,7 +62,7 @@ jobs:
     release:
         name: Release pushed tag
         runs-on: ubuntu-24.04
-        name needs: [Build-Linux, Build-Windows]
+        needs: [Build-Linux, Build-Windows]
         steps:
           - name: Create release
             env:
