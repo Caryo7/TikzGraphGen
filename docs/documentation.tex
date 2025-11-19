@@ -1,0 +1,78 @@
+\documentclass[french,10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{babel}
+\usepackage{fourier}
+\usepackage{hyperref}
+\title{Documentation}
+\author{Benoit Charreyron}
+
+\newcommand{\btn}[1]{\texttt{#1 }}
+\newcommand{\coord}[1]{\texttt{#1 }}
+\newcommand{\style}[1]{\texttt{#1 }}
+\begin{document}
+	\maketitle
+	\section{Modules requis}
+	L'assistant utilise le module \texttt{pgfplots}, qui est un fork? de \texttt{tikz}. Nous recommandons d'avoir ces deux modules à disposition. 
+	Par ailleurs, le préambule du programme \TeX peut commencer par les instructions suivantes 
+	\begin{verbatim}
+		\pgfplotsset{every axis/.append style={
+				axis x line=middle,    % put the x axis in the middle
+				axis y line=middle,    % put the y axis in the middle
+				axis line style={->,color=black}, % arrows on the axis
+				xlabel={$x$},          % default put x on x-axis
+				ylabel={$y$},          % default put y on y-axis
+		}}
+	\end{verbatim}
+	Pour plus d'informations, reportez vous à la documentation de \texttt{pgfplots}.
+	
+	\section{Panneaux de l'interface}
+	L'interface est composée d'une barre de menu, qui permet d'ajouter une nouvelle courbe, de supprimer celles séléctionnées, d'enregistrer la session actuelle, d'en ouvrir une précédente, et d'ouvrir la fenêtre d'export.\\
+	Le centre de l'interface est la liste des courbes qui sont paramétrés.\\
+	Enfin, le bas est divisé en trois section :
+	\textbf{Première section.} Les grilles
+	\begin{enumerate}
+		\item La grille, pour choisir quel type de grille vous souhaitez (majeur et double sont presque pareille, je n'ai pas trouvé de différences)
+		\item Pas de grille du tout
+		\item Une grille égale, c'est à dire que l'échelle est 1 : 1 entre les abscisses et ordonées. Utile si vous souhaitez faire des graphics avec une échelle cohérente.
+	\end{enumerate}
+	
+	\textbf{Seconde section.} Les plages.\\
+	Le compilateur \LaTeX va mettre la grille et les axes sur le domaine qui est défini ici.
+	\warning \textcolor{red}{Toutes les valeurs doivent être des réels (pas de variables), et qui ont un point comme virgule}
+	
+	\textbf{Troisième section.} Les informations\\
+	Les informations sur le graphique sont dans la dernière section. Vous y rentrez ici le titre de la légende, le titre de la figure, et vous pouvez choisir d'afficher ou non la légende. (si vous décochez la case, un commentaire dans le code \LaTeX vous indiquera comment la remettre).
+
+	\section{Fonctions affines}
+	Pour paramétrer une fonction affine, vous pouvez cliquez sur le bouton  \btn{Ajouter}. Une nouvelle ligne apparait dans la liste des courbes.\\
+	Vous pouvez alors modifier la coordonée de l'ordonée, en remplacant le \coord{x} par votre fonction.\\
+	\warning \textcolor{red}{La variable de l'abscise doit impérativement se nommer \coord{x}. Dans le cas contraire, \LaTeX ne saura pas deviner qui bouge}\\
+	Chaque courbes est défini par un domaine, qui correspond à l'intervalle que décrit le paramètre \coord{x}. Veillez à le remplir selon la disposition suivante:
+	\begin{center}
+		départ:arrivée
+	\end{center}
+	Sans espace, utilisant un "\texttt{.}" comme séparateur de virgule. Vous ne devez utiliser que des nombres réels (pas de variable ou de constances).\\
+	Vous pouvez choisir la couleur de la courbe. Le nom de la couleur doit être pris en compte par \LaTeX. Il est donc en minuscule, en langue anglaise. L'assistant vous en propose déjà plusieurs choix.\\
+	Le style de la courbe peut être soit \style{thick} soit \style{dashed} ou d'autres styles pris en comptes par \LaTeX. \\
+	La case légende elle correspond au titre de la courbe.
+	
+	\section{Les tangentes}
+	Pour mettre une tangeante, vous pouvez utiliser le même principe que pour les fonctions affines, seulement vous choisirez un domaine pour le paramètre plus restreint, et vous pourrez cliquer dans la dernière colonne (\texttt{-}), une ligne avec deux flèches, repéré par \texttt{<->}. Ainsi, la tangente aura des flèches aux bords.
+	
+	\section{Les points}
+	Pour mettre un point, entrez dans l'abscisse son abscisse, valeur réelle uniquement, en utilisant un point pour le séparateur des décimales. Laissez ensuite la case domaine vide !\\
+	Alors, la légende sera le nom du point, affiche juste à côté. (Il est possible de changer la position du texte du point dicremtenent dans le code \LaTeX généré).
+	
+	\section{Courbes paramétrées}
+	Les courbes paramétrées sont comme les droites affiches, mais vous pouvez entrer une autre fonction dans la colonne abscisse. Attention, le paramètre est ici aussi \coord{x} !
+	
+	\section{Fonctions trigonométriques}
+	Pour certaines raisons, il est impératif de noter les fonctions trigonométriques avec l'instruction \texttt{deg(x)}. Dans un autre cas, le compilateur ne saura pas interpréter l'équation.
+	
+	\section{Remerciements}
+	Ce programme a été écrit pour ma professeure de Mathématiques, merci à elle pour la motivation :)
+
+\end{document}
