@@ -70,7 +70,7 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
                 name: exes-debian
-                path: dist/
+                path: dist/main/
 
  #   release:
  #       name: Release pushed tag
