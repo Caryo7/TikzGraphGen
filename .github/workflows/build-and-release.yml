@@ -33,11 +33,6 @@ jobs:
           #  with:
           #      path: compilation.iss
 
-          - name: Show directory content
-            run: |
-              cd dist\main
-              dir
-
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
             with:
@@ -63,24 +58,8 @@ jobs:
           - name: Build EXE files
             run: python -m PyInstaller src/main.py --noconfirm
 
-          - name: Print directory content
-            run: ls -a
-
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
             with:
                 name: exes-debian
                 path: dist/main/
-
- #   release:
- #       name: Release pushed tag
- #       runs-on: ubuntu-24.04
- #       needs: [Build-Linux, Build-Windows]
- #       steps:
- #         - name: Create release
- #           env:
- #             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- #           run: |
- #             gh release create "$GITHUB_REF_NAME" \
- #             --repo="$GITHUB_REPOSITORY" \
- #             --title="${GITHUB_REPOSITORY#*/} $GITHUB_REF_NAME"
