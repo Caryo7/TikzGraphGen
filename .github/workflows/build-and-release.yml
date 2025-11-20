@@ -28,6 +28,14 @@ jobs:
           - name: Build EXE files
             run: python -m PyInstaller src/main.py --noconfirm
 
+          #- name: Compile ISCC setup
+          #  uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
+          #  with:
+          #      path: compilation.iss
+
+          - name: Show directory content
+            run: dir
+
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
             with:
@@ -52,6 +60,9 @@ jobs:
 
           - name: Build EXE files
             run: python -m PyInstaller src/main.py --noconfirm
+
+          - name: Print directory content
+            run: ls -a
 
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
