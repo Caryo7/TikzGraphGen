@@ -35,7 +35,7 @@ jobs:
 
           - name: Show directory content
             run: |
-              cd dist
+              cd dist\main
               dir
 
           - name: Upload EXEs as artifacts
