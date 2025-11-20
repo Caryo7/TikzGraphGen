@@ -35,8 +35,8 @@ jobs:
 
           - name: Show directory content
             run: |
-            cd dist
-            dir
+              cd dist
+              dir
 
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
