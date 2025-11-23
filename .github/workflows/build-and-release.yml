@@ -40,18 +40,35 @@ jobs:
                 filename: 'tikzgraphgen-mobile.zip'
                 directory: './dist/TikzGraphGen/'
 
+          # - name: Archive Installer
+            # uses: thedoctor0/zip-release@0.7.5
+            # with:
+                # type: 'zip'
+                # filename: 'tikzgraphgen-mobile.zip'
+                # directory: './dist/TikzGraphGen/'
+
           - name: print structure
             run: tree /F
 
-          - name: Upload binaries to release
-            uses: svenstaro/upload-release-action@v2
-            with:
-              repo_token: ${{ secrets.GITHUB_TOKEN }}
-              file: ./dist/TikzGraphGen/tikzgraphgen-mobile.zip
-              asset_name: Version-mobile
-              tag: ${{ github.ref }}
-              overwrite: false
-              body: "Release contain the mobile version for windows"
+          # - name: Upload installer to release
+            # uses: svenstaro/upload-release-action@v2
+            # with:
+              # repo_token: ${{ secrets.GITHUB_TOKEN }}
+              # file: ./dist/TikzGraphGen/tikzgraphgen-mobile.zip
+              # asset_name: Version-mobile
+              # tag: ${{ github.ref }}
+              # overwrite: false
+              # body: "Release contain the mobile version for windows"
+
+          # - name: Upload mobile to release
+            # uses: svenstaro/upload-release-action@v2
+            # with:
+              # repo_token: ${{ secrets.GITHUB_TOKEN }}
+              # file: ./dist/TikzGraphGen/setup_tikzgraphgen_win32.exe
+              # asset_name: Installer
+              # tag: ${{ github.ref }}
+              # overwrite: false
+              # body: "Release contain the mobile version for windows"
 
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
