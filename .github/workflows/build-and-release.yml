@@ -40,6 +40,9 @@ jobs:
                 filename: 'tikzgraphgen-mobile.zip'
                 directory: './dist/TikzGraphGen/'
 
+          - name: print structure
+            runs: tree /F
+
           - name: Upload binaries to release
             uses: svenstaro/upload-release-action@v2
             with:
