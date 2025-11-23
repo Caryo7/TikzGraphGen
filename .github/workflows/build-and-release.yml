@@ -41,7 +41,7 @@ jobs:
                 directory: './dist/TikzGraphGen/'
 
           - name: print structure
-            runs: tree /F
+            runs: tree /F 
 
           - name: Upload binaries to release
             uses: svenstaro/upload-release-action@v2
