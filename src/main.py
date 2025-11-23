@@ -174,7 +174,7 @@ class Application:
         f.write('//\n')
         for v in [self.xmin.get(), self.xmax.get(), self.ymin.get(), self.ymax.get(),
                   self.title_caption.get(), self.title_legend.get()]:
-            f.write(v)
+            f.write(str(v))
             f.write('//\n')
 
         for iid in self.lst.get_children():
@@ -182,7 +182,7 @@ class Application:
             f.write(item['text'])
             f.write('##')
             for v in item['values']:
-                f.write(v)
+                f.write(str(v))
                 f.write('##')
 
             f.write('//\n')
