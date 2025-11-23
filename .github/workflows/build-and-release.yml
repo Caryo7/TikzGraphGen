@@ -33,6 +33,13 @@ jobs:
             with:
                 path: innosetup.iss
 
+          - name: 'Update release'
+            run: |
+                zip -r tikzgraphgen-mobile.zip dist/TikzGraphGen/
+                gh release upload ${{github.event.release.tag_name}} tikzgraphgen-mobile.zip
+            env:
+              GITHUB_TOKEN: ${{ github.TOKEN }}
+
           - name: Upload EXEs as artifacts
             uses: actions/upload-artifact@v4
             with:
@@ -58,6 +65,16 @@ jobs:
           - name: Build EXE files
             run: python -m PyInstaller main.spec --noconfirm
             
+          # - name: Upload files to Release
+            # uses: actions/upload-release-asset@v1
+            # env:
+                # GITHUB_TOKEN: ${{ github.token }}
+            # with:
+                # upload_url: ${{ steps.create_release.outputs.upload_url }}
+                # asset_path: ./bin/azblogfilter.linux-amd64.tar.gz
+                # asset_name: azblogfilter.linux-amd64.tar.gz
+                # asset_content_type: application/gzip
+            
           #- name: Print directory structure
           #  run: |
           #      cd ./dist/TikzGraphGen
@@ -68,3 +85,29 @@ jobs:
             with:
                 name: exes-debian
                 path: dist/TikzGraphGen/
+
+    # Publish files to Release:
+        # runs-on: ubuntu-latest
+        # steps:
+          # - name: Checkout code
+            # uses: actions/checkout@v4
+            
+          # - name: upload linux artifact
+            # uses: actions/upload-release-asset@v1
+            # env:
+                # GITHUB_TOKEN: ${{ github.token }}
+            # with:
+                # upload_url: ${{ steps.create_release.outputs.upload_url }}
+                # asset_path: ./bin/azblogfilter.linux-amd64.tar.gz
+                # asset_name: azblogfilter.linux-amd64.tar.gz
+                # asset_content_type: application/gzip
+
+          # - name: upload windows artifact
+            # uses: actions/upload-release-asset@v1
+            # env:
+                # GITHUB_TOKEN: ${{ github.token }}
+            # with:
+                # upload_url: ${{ steps.create_release.outputs.upload_url }}
+                # asset_path: ./bin/azblogfilter.windows-amd64.zip
+                # asset_name: azblogfilter.windows-amd64.zip
+                # asset_content_type: application/zip
