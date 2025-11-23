@@ -62,4 +62,4 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
                 name: exes-debian
-                path: dist/main/
+                path: dist/TikzGrapheGen/
