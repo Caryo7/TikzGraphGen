@@ -33,9 +33,15 @@ jobs:
             with:
                 path: innosetup.iss
 
+          - name: Archive Release
+            uses: thedoctor0/zip-release@0.7.5
+            with:
+                type: 'zip'
+                filename: 'tikzgraphgen-mobile.zip'
+                directory: './dist/TikzGraphGen/'
+
           - name: 'Update release'
             run: |
-                zip -r tikzgraphgen-mobile.zip dist/TikzGraphGen/
                 gh release upload ${{github.event.release.tag_name}} tikzgraphgen-mobile.zip
             env:
               GITHUB_TOKEN: ${{ github.TOKEN }}
