@@ -21,6 +21,8 @@ def give_tex(master, text):
 class Application:
     def __init__(self):
         self.master = Tk()
+        icon = PhotoImage(file = './image.png')
+        self.master.iconphoto(True, icon)
         self.master.title('PgfPlots assistant')
         self.master.rowconfigure(0, weight = 1)
         self.master.columnconfigure(1, weight = 1)
