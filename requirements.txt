@@ -1,2 +1,2 @@
 matplotlib==3.10.7
-pyinstaller==6.16.0
+pyinstaller==6.17.0
