@@ -6,3 +6,10 @@
 /tests/
 **/*.tikz
 **/out*.*
+*.aux
+*.dvi
+*.log
+*.pdf
+*.gz
+*.png
+src/main.tex

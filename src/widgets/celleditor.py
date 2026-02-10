@@ -8,7 +8,7 @@ import os
 import time
 
 #from customwidgets import *
-from tooltip import *
+from .tooltip import *
 #from confr import *
 
 #import language
